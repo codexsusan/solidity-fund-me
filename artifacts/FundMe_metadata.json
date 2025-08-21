@@ -9,14 +9,20 @@
 				"inputs": [],
 				"name": "fund",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "withdraw",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "minimumUsd",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -35,7 +41,7 @@
 		"compilationTarget": {
 			"FundMe.sol": "FundMe"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -48,11 +54,11 @@
 	},
 	"sources": {
 		"FundMe.sol": {
-			"keccak256": "0xbbb1e33990373bb6ef71f653e8d64015724ba23fd677b4ffd0672e88e65a715c",
+			"keccak256": "0x488d2050971c3f019bf82fc151a9f208fa0e1fd0c187a3101617fa8d0f0fb631",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://add261b8393967e31c2f92d2207fa9a250bb556a16b18be82b2aa465489e9c73",
-				"dweb:/ipfs/Qma6bex1iZMzPkCtoRNLtWgTggQ5qZMCgUBZayGjYfcgVk"
+				"bzz-raw://19e618e1b6a9e962db65432f69a33791b2c6f8038d722ce67d946bb04adc7e12",
+				"dweb:/ipfs/QmTWwtBQP6sAaVo9zMmBescgfZZj64odRG54xSiJq1Xgdv"
 			]
 		}
 	},
