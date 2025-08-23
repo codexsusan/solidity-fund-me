@@ -22,10 +22,6 @@ contract RealEstateTitle {
         uint256 timestamp;
         uint256 transactionValue;
     }
-
-    0:
-    1,0x0000000000000000000000000000000000000000,0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,1755828896,0,
-    1,0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,1755829037,120
     
     address public owner;
     
