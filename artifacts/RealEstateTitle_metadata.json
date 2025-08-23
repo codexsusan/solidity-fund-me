@@ -397,26 +397,7 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {
-				"getOwnedProperties(address)": {
-					"details": "Check if address owns any properties"
-				},
-				"getProperty(uint256)": {
-					"details": "Get property details"
-				},
-				"getTotalProperties()": {
-					"details": "Get total number of properties"
-				},
-				"getTransferHistory(uint256)": {
-					"details": "Get transfer history for a property"
-				},
-				"registerProperty(string,string,string,string,uint256,uint256)": {
-					"details": "Register a new property"
-				},
-				"transferTitle(uint256,address,uint256)": {
-					"details": "Transfer property title to new owner"
-				}
-			},
+			"methods": {},
 			"version": 1
 		},
 		"userdoc": {
@@ -442,11 +423,11 @@
 	},
 	"sources": {
 		"contracts/RealEstateTitle.sol": {
-			"keccak256": "0x265690c91d7786359b93c76192b0f4fb3a956094eddb231379f071f80285eac5",
+			"keccak256": "0x2ab87a62fbbfa70ad66a7ac1a654fad78bcfc933410d6fe796c99fc9de10ce61",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://89ca0be9a40eabaca865e3a695c74d124ec7a64115d45e658a4600a9f6e2d3e6",
-				"dweb:/ipfs/QmcwK56ahgarcF392Ru3Fp2r94FLAECh3HQzRx2B8QgLzw"
+				"bzz-raw://bd8daa4e15b1184811d8537766cc3dc71d663af0800d040f34458d585f8fcb6f",
+				"dweb:/ipfs/QmVSptivgwPLuKk5QY81sB5TVas9qnEGQYNtQH4deusbu8"
 			]
 		}
 	},

@@ -3,20 +3,18 @@ pragma solidity ^0.8.0;
 
 contract RealEstateTitle {
     
-    // Structure to represent a property
     struct Property {
         uint256 id;
         string addressLine;
         string city;
         string state;
         string zipCode;
-        uint256 area; // in square meters
-        uint256 marketValue; // in wei
+        uint256 area;
+        uint256 marketValue;
         address currentOwner;
         bool exists;
     }
     
-    // Structure to represent a title transfer
     struct TitleTransfer {
         uint256 propertyId;
         address from;
@@ -24,24 +22,22 @@ contract RealEstateTitle {
         uint256 timestamp;
         uint256 transactionValue;
     }
+
+    0:
+    1,0x0000000000000000000000000000000000000000,0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,1755828896,0,
+    1,0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,1755829037,120
     
-    // Contract owner
     address public owner;
     
-    // Mapping of properties
     mapping(uint256 => Property) public properties;
-    
-    // Mapping of property transfer history
+
     mapping(uint256 => TitleTransfer[]) public transferHistory;
     
-    // Counter for property IDs
     uint256 public propertyCount;
     
-    // Events
     event PropertyRegistered(uint256 propertyId, string addressLine, address owner);
     event TitleTransferred(uint256 propertyId, address from, address to, uint256 value);
     
-    // Modifiers
     modifier onlyOwner() {
         require(msg.sender == owner, "Only contract owner can perform this action");
         _;
@@ -62,9 +58,6 @@ contract RealEstateTitle {
         propertyCount = 0;
     }
     
-    /**
-     * @dev Register a new property
-     */
     function registerProperty(
         string memory _addressLine,
         string memory _city,
@@ -86,8 +79,7 @@ contract RealEstateTitle {
             currentOwner: msg.sender,
             exists: true
         });
-        
-        // Record initial registration as a transfer
+
         TitleTransfer memory initialTransfer = TitleTransfer({
             propertyId: propertyCount,
             from: address(0), // No previous owner
@@ -102,10 +94,7 @@ contract RealEstateTitle {
         
         return propertyCount;
     }
-    
-    /**
-     * @dev Transfer property title to new owner
-     */
+
     function transferTitle(
         uint256 _propertyId,
         address _newOwner,
@@ -114,11 +103,9 @@ contract RealEstateTitle {
         require(_newOwner != address(0), "Invalid new owner address");
         require(_newOwner != msg.sender, "Cannot transfer to yourself");
         
-        // Update property ownership
         address previousOwner = properties[_propertyId].currentOwner;
         properties[_propertyId].currentOwner = _newOwner;
         
-        // Record the transfer
         TitleTransfer memory transfer = TitleTransfer({
             propertyId: _propertyId,
             from: previousOwner,
@@ -131,10 +118,7 @@ contract RealEstateTitle {
         
         emit TitleTransferred(_propertyId, previousOwner, _newOwner, _transactionValue);
     }
-    
-    /**
-     * @dev Get property details
-     */
+
     function getProperty(uint256 _propertyId) 
         external 
         view 
@@ -162,10 +146,7 @@ contract RealEstateTitle {
             property.currentOwner
         );
     }
-    
-    /**
-     * @dev Get transfer history for a property
-     */
+
     function getTransferHistory(uint256 _propertyId) 
         external 
         view 
@@ -175,16 +156,10 @@ contract RealEstateTitle {
         return transferHistory[_propertyId];
     }
     
-    /**
-     * @dev Get total number of properties
-     */
     function getTotalProperties() external view returns (uint256) {
         return propertyCount;
     }
     
-    /**
-     * @dev Check if address owns any properties
-     */
     function getOwnedProperties(address _owner) external view returns (uint256[] memory) {
         uint256[] memory ownedProperties = new uint256[](propertyCount);
         uint256 count = 0;
